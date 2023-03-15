@@ -1,7 +1,6 @@
 
 ## Getting Started
 
-![Default Home View](./Screenshot.png?raw=true "Title")
 
 Setup project environment with python -m venv myenv.
 
