@@ -8,9 +8,9 @@ Setup project environment with python -m venv myenv.
 ```bash
 $ git clone https://github.com/ikram9820/ustadapi.git
 $ cd ustadapi
-$ python -m venv myenv
+$ python -m venv .venv
 # The Activation command is only for windows CMD
-$ .\myenv\Scripts\activate 
+$ .venv/scripts/activate 
 $ pip install -r requirements.txt
 
 $ python manage.py makemigrations
