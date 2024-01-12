@@ -1,10 +1,6 @@
 from django.contrib import admin
 from . import models
 
-class UserLocationInline(admin.TabularInline):
-    model = models.Location
-
-
 @admin.register(models.Profession)
 class ProfessionAdmin(admin.ModelAdmin):
     list_display = ['id','title']
@@ -13,13 +9,13 @@ class ProfessionAdmin(admin.ModelAdmin):
     search_fields = ['title','id']
 
 
-class UstadOrderInline(admin.TabularInline):
+class GigOrderInline(admin.TabularInline):
     model = models.Order
 
-@admin.register(models.Ustad)
-class UstadAdmin(admin.ModelAdmin):
-    inlines = [UstadOrderInline]
-    list_display = ['user_id','user','online','rate','profession',]
+@admin.register(models.Gig)
+class GigAdmin(admin.ModelAdmin):
+    inlines = [GigOrderInline]
+    list_display = ['user_id','user','is_active','rate','profession',]
     search_fields = ['user__username','profession__title']
     list_editable = ['profession']
     list_per_page = 10
@@ -33,7 +29,7 @@ class OrderReviewInline(admin.TabularInline):
 @admin.register(models.Order)
 class OrderAdmin(admin.ModelAdmin):
     inlines = [OrderReviewInline]
-    list_display = ['user','ustad','status','start',]
+    list_display = ['user','gig','status','start_at',]
     list_editable = ['status']
     list_per_page = 10
 

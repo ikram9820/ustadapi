@@ -1,11 +1,11 @@
 from django_filters.rest_framework import FilterSet
-from .models import Ustad
+from .models import Gig
 
-class ServiceFilter(FilterSet):
+class GigFilter(FilterSet):
   class Meta:
-    model = Ustad
+    model = Gig
     fields = {
       'profession_id': ['exact'],
       'rate': ['gt', 'lt'],
-      'online':['exact']
+      'is_active':['exact']
     }

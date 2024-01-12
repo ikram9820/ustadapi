@@ -1,6 +1,5 @@
 from rest_framework import permissions
 from . import models
-from django.db.models import Q
 from django.core.exceptions import ObjectDoesNotExist
 
 class IsAdminOrReadOnly(permissions.BasePermission):
@@ -23,7 +22,7 @@ class OrderPermission(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
         
         if self.has_permission(request,view):
-            return bool(obj.ustad_id == request.user.id) or bool(obj.user_id == request.user.id) #tested just for order
+            return bool(obj.gig_id == request.user.id) or bool(obj.user_id == request.user.id) #tested just for order
         return False
 
 class ReviewPermission(permissions.BasePermission):
@@ -58,11 +57,11 @@ class OrderUserPermission(permissions.BasePermission):
             return bool(obj.user_id == request.user.id) #tested just for order
         return False
 
-class OrderUstadPermission(permissions.BasePermission):
+class OrderGigPermission(permissions.BasePermission):
 
         
     def has_object_permission(self, request, view, obj):
         if bool(request.user and request.user.is_authenticated):
-            return bool(obj.ustad_id == request.user.id) #tested just for order
+            return bool(obj.gig_id == request.user.id) #tested just for order
         return False
 
