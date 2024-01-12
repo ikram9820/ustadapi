@@ -1,5 +1,5 @@
 from rest_framework import permissions
-from . import models
+from services import models
 from django.core.exceptions import ObjectDoesNotExist
 
 class IsAdminOrReadOnly(permissions.BasePermission):

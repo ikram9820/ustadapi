@@ -1,5 +1,5 @@
 from django_filters.rest_framework import FilterSet
-from .models import Gig
+from services.models import Gig
 
 class GigFilter(FilterSet):
   class Meta:

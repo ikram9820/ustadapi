@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from . import models
+from services import models
 
 class GigSerialzer(serializers.ModelSerializer):
     user = serializers.StringRelatedField(read_only = True)
